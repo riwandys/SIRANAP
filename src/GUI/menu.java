@@ -6,7 +6,7 @@
 package GUI;
 
 import java.sql.Connection;
-import proses.JConnection;
+import Proses.JConnection;
 
 /**
  *

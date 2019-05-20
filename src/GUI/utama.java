@@ -2,7 +2,7 @@ package GUI;
 
 
 import java.sql.Connection;
-import proses.JConnection;
+import Proses.JConnection;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
