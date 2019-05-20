@@ -132,6 +132,7 @@ public class utama extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
         mainmenu objek = new mainmenu();
+        objek.setLocationRelativeTo(null);
         objek.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_loginActionPerformed

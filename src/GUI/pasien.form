@@ -321,11 +321,13 @@
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="NIP DOKTER"/>
-                <StringItem index="1" value="NAMA DOKTER"/>
-                <StringItem index="2" value="SPESIALIS"/>
-                <StringItem index="3" value="NO TELEPON"/>
+              <StringArray count="6">
+                <StringItem index="0" value="ID PASIEN"/>
+                <StringItem index="1" value="NAMA PASIEN"/>
+                <StringItem index="2" value="JENIS KELAMIN"/>
+                <StringItem index="3" value="TANGGAL LAHIR"/>
+                <StringItem index="4" value="NO TELEPON"/>
+                <StringItem index="5" value="ALAMAT"/>
               </StringArray>
             </Property>
           </Properties>
