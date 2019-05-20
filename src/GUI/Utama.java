@@ -14,15 +14,15 @@ import Proses.JConnection;
  *
  * @author LAURENSIUS
  */
-public class utama extends javax.swing.JFrame {
+public class Utama extends javax.swing.JFrame {
 
     /**
-     * Creates new form utama
+     * Creates new form Utama
      */
     
     Connection con = null;
     
-    public utama() {
+    public Utama() {
         initComponents();
         con = JConnection.ConnectDb();
     }
@@ -131,7 +131,7 @@ public class utama extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        mainmenu objek = new mainmenu();
+        Main objek = new Main();
         objek.setLocationRelativeTo(null);
         objek.setVisible(true);
         this.dispose();
@@ -154,20 +154,21 @@ public class utama extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                utama gui = new utama();
+                Utama gui = new Utama();
                 gui.setLocationRelativeTo(null);
                 gui.setVisible(true);
             }
