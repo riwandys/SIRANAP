@@ -5,17 +5,114 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author LAURENSIUS
  */
-public class Dokter extends javax.swing.JFrame {
-
+public final class Dokter extends javax.swing.JFrame {
+private void kosongft(){
+        nip.setText(null);
+        nip1.setText(null);
+        nama1.setText(null);
+        nama.setText(null);
+        spesialis.setText(null);
+        spesialis1.setText(null);
+        telepon.setText(null);
+        telepon1.setText(null);
+    }
+    public void tampilan(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NIP DOKTER");
+        x.addColumn("NAMA DOKTER");
+        x.addColumn("SPESIALIS");
+        x.addColumn("NO TELEPON");
+        
+       try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rumah_sakit1","root","");
+            Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from dokter";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString("NIP_DOKTER"),rset.getString("nama_DOKTER"),rset.getString("spesialis"),rset.getString("no_telpon")});
+            }
+            tbldokter.setModel(x);
+        }catch(SQLException ex){
+          
+        }
+    }
+    
+    private void tampilkandata(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NIP DPKTER");
+        x.addColumn("NAMA DOKTER");
+        x.addColumn("SPESIALIS");
+        x.addColumn("NO TELPON");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from dokter order by "+kolom+" asc";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+            }
+            tbldokter.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
+    
+    private void tampilkancari(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("NIP DPKTER");
+        x.addColumn("NAMA DOKTER");
+        x.addColumn("SPESIALIS");
+        x.addColumn("NO TELPON");
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from dokter where NIP_DOKTER like '%"+kolom+"%' or "+
+                    "nama_DOKTER like '%"+kolom+"%' or SPESIALIS like '%"+kolom+"%'"+"or NO_TELPON like '%"+kolom+"%'";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+            }
+            tbldokter.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
+    /**
     /**
      * Creates new form dokter
      */
     public Dokter() {
         initComponents();
+        tampilan();
     }
 
     /**
@@ -50,15 +147,16 @@ public class Dokter extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        nip1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         cari_data = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        urut = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbldokter = new javax.swing.JTable();
         delete = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        nip1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,12 +176,32 @@ public class Dokter extends javax.swing.JFrame {
         jLabel6.setText("NO TELEPON");
 
         save.setText("SAVE");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
 
         batal.setText("BATAL");
+        batal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                batalMouseClicked(evt);
+            }
+        });
 
         update.setText("UPDATE");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
 
         batal1.setText("BATAL");
+        batal1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                batal1MouseClicked(evt);
+            }
+        });
 
         jLabel7.setText("UPDATE DATA");
 
@@ -98,12 +216,27 @@ public class Dokter extends javax.swing.JFrame {
         jLabel12.setText("CARI DATA");
 
         cari.setText("CARI");
+        cari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cariActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("URUT DATA");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIP DOKTER", "NAMA DOKTER", "SPESIALIS", "NO TELEPON" }));
+        urut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NIP DOKTER", "NAMA DOKTER", "SPESIALIS", "NO TELEPON" }));
+        urut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                urutMouseClicked(evt);
+            }
+        });
+        urut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                urutActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbldokter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,9 +247,24 @@ public class Dokter extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbldokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbldokterMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbldokter);
 
         delete.setText("DELETE");
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+        });
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,7 +299,6 @@ public class Dokter extends javax.swing.JFrame {
                                     .addComponent(batal1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel8)
@@ -162,18 +309,22 @@ public class Dokter extends javax.swing.JFrame {
                                                 .addGap(27, 27, 27)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(delete)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(nip1)
-                                                        .addComponent(nama1)
-                                                        .addComponent(spesialis1)
-                                                        .addComponent(telepon1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                            .addComponent(telepon1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                                            .addComponent(spesialis1, javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(nama1)
+                                                            .addComponent(nip1))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel14))))
+                                            .addComponent(jLabel7))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel12)
                                             .addComponent(cari_data)
                                             .addComponent(cari)
                                             .addComponent(jLabel13)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(186, 186, 186)))
                 .addContainerGap())
         );
@@ -182,16 +333,18 @@ public class Dokter extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addGap(155, 155, 155)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(nip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel14)))
+                                    .addComponent(nip1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
@@ -217,11 +370,13 @@ public class Dokter extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(batal1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -260,6 +415,98 @@ public class Dokter extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rumah_sakit1","root","");
+            Statement stmt = conn.createStatement();
+        ){
+            String insert = "insert into dokter values ('"+nip.getText()+"','"+nama.getText()+"','"+spesialis.getText()+"','"+
+                    telepon.getText()+"')";
+            stmt.executeUpdate(insert);
+            JOptionPane.showMessageDialog(null,"tambah data berhasil");
+            tampilan();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"gagal tambah data");
+        }        
+    }//GEN-LAST:event_saveActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tbldokter.getModel();
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rumah_sakit1","root","");
+            Statement stmt = conn.createStatement();
+        ){
+            String update = "update dokter set NIP_DOKTER='"+nip1.getText()+"',NAMA_DOKTER='"+nama1.getText()+
+                    "',SPESIALIS='"+spesialis1.getText()+"',NO_TELPON='"+telepon1.getText()+
+                    "' where NIP_DOKTER = '"+model.getValueAt(tbldokter.getSelectedRow(), 0).toString()+"'";
+            stmt.executeUpdate(update);
+            JOptionPane.showMessageDialog(null, "update data berhasil");
+            tampilan();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"gagal update data");
+        }
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+       
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void urutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_urutMouseClicked
+       
+    }//GEN-LAST:event_urutMouseClicked
+
+    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
+        String kolom = cari_data.getText();
+        tampilkancari(kolom);
+    }//GEN-LAST:event_cariActionPerformed
+
+    private void tbldokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbldokterMouseClicked
+        DefaultTableModel model = (DefaultTableModel) tbldokter.getModel();
+        nip1.setText(model.getValueAt(tbldokter.getSelectedRow(), 0).toString());
+        nama1.setText(model.getValueAt(tbldokter.getSelectedRow(), 1).toString());
+        spesialis1.setText(model.getValueAt(tbldokter.getSelectedRow(), 2).toString());
+        telepon1.setText(model.getValueAt(tbldokter.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tbldokterMouseClicked
+
+    private void urutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_urutActionPerformed
+         String kolom;
+
+        if (urut.getSelectedItem()=="NIP DOKTER"){
+            tampilkandata("NIP_DOKTER");
+        } else if (urut.getSelectedItem()=="NAMA DOKTER"){
+            tampilkandata("nama_DOKTER");
+        }else if (urut.getSelectedItem()=="SPESIALIS"){
+            tampilkandata("SPESIALIS");
+        }else if (urut.getSelectedItem()=="NO TELEPON"){
+            tampilkandata("NO_TELPON");
+        }
+    }//GEN-LAST:event_urutActionPerformed
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+       try(
+            Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/rumah_sakit1",
+                "root",
+                "");
+            Statement stmt = conn.createStatement();
+        ){
+            String delete = "delete from dokter where nip_dokter = '"+nip1.getText()+"'";
+            stmt.executeUpdate(delete);
+            tampilan();
+        }catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+    }//GEN-LAST:event_deleteMouseClicked
+
+    private void batal1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_batal1MouseClicked
+        // TODO add your handling code here:
+        kosongft();
+    }//GEN-LAST:event_batal1MouseClicked
+
+    private void batalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_batalMouseClicked
+        kosongft();
+    }//GEN-LAST:event_batalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -309,12 +556,12 @@ public class Dokter extends javax.swing.JFrame {
     private javax.swing.JButton cari;
     private javax.swing.JTextField cari_data;
     private javax.swing.JButton delete;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,7 +572,6 @@ public class Dokter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nama1;
     private javax.swing.JTextField nip;
@@ -333,8 +579,10 @@ public class Dokter extends javax.swing.JFrame {
     private javax.swing.JButton save;
     private javax.swing.JTextField spesialis;
     private javax.swing.JTextField spesialis1;
+    private javax.swing.JTable tbldokter;
     private javax.swing.JTextField telepon;
     private javax.swing.JTextField telepon1;
     private javax.swing.JButton update;
+    private javax.swing.JComboBox<String> urut;
     // End of variables declaration//GEN-END:variables
 }
