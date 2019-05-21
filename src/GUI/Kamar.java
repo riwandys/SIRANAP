@@ -5,17 +5,105 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author LAURENSIUS
  */
 public class Kamar extends javax.swing.JFrame {
-
+public void tampilan(){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("KODE KAMAR");
+        x.addColumn("KELAS");
+        x.addColumn("KAPASITAS");
+        x.addColumn("BIAYA PER HARI");
+        
+       try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rumah_sakit1","root","");
+            Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from KAMAR NATURAL JOIN KELAS_KAMAR";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString("KODE_KAMAR"),rset.getString("KELAS"),rset.getString("KAPASITAS"),
+                    rset.getString("TARIF_PERHARI")});
+            }
+            tblkamar.setModel(x);
+        }catch(SQLException ex){
+          
+        }
+    }
+    
+    private void tampilkandata(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("KODE KAMAR");
+        x.addColumn("KELAS");
+        x.addColumn("KAPASITAS");
+        x.addColumn("BIAYA PER HARI");
+        
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from kamar natural join kelas_kamar order by "+kolom+" asc";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+            }
+            tblkamar.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
+    
+    private void tampilkancari(String kolom){
+        DefaultTableModel x = new DefaultTableModel();
+        x.addColumn("KODE KAMAR");
+        x.addColumn("KELAS");
+        x.addColumn("KAPASITAS");
+        x.addColumn("BIAYA PER HARI");
+        
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String strSelect = "select * from kamar natural join kelas_kamar where kode_kamar like '%"+kolom+"%' or "+
+                    "kelas ='"+kolom+"' or kapasitas like '%"+kolom+"%'"+"or tarif_perhari like '%"+kolom+"%'";
+            
+            ResultSet rset=stmt.executeQuery(strSelect);
+            
+            while(rset.next()){
+                x.addRow(new Object[] {rset.getString(1),rset.getString(2),rset.getString(3),rset.getString(4)});
+            }
+            tblkamar.setModel(x);
+        }catch(SQLException ex){
+            
+        }
+    }
     /**
      * Creates new form dokter
      */
     public Kamar() {
         initComponents();
+        tampilan();
     }
 
     /**
@@ -33,9 +121,9 @@ public class Kamar extends javax.swing.JFrame {
         cari_data = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        urut = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblkamar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,12 +135,22 @@ public class Kamar extends javax.swing.JFrame {
         jLabel12.setText("CARI DATA");
 
         cari.setText("CARI");
+        cari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cariMouseClicked(evt);
+            }
+        });
 
         jLabel13.setText("URUT DATA");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KODE KAMAR", "KELAS", " " }));
+        urut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "KODE KAMAR", "KELAS", "KAPASITAS", "TARIF PER HARI", " " }));
+        urut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                urutActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblkamar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,7 +161,7 @@ public class Kamar extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblkamar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,7 +176,7 @@ public class Kamar extends javax.swing.JFrame {
                         .addComponent(cari_data)
                         .addComponent(cari)
                         .addComponent(jLabel13)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1107, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -98,7 +196,7 @@ public class Kamar extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -116,6 +214,25 @@ public class Kamar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cariMouseClicked
+       String kolom = cari_data.getText();
+        tampilkancari(kolom);
+    }//GEN-LAST:event_cariMouseClicked
+
+    private void urutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_urutActionPerformed
+        String kolom;
+
+        if (urut.getSelectedItem()=="KODE KAMAR"){
+            tampilkandata("kode_kamar");
+        } else if (urut.getSelectedItem()=="KELAS"){
+            tampilkandata("kelas");
+        }else if (urut.getSelectedItem()=="KAPASITAS"){
+            tampilkandata("kapasitas");
+        }else if (urut.getSelectedItem()=="TARIF PER HARI"){
+            tampilkandata("tarif_perhari");
+        }
+    }//GEN-LAST:event_urutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,12 +303,12 @@ public class Kamar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cari;
     private javax.swing.JTextField cari_data;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblkamar;
+    private javax.swing.JComboBox<String> urut;
     // End of variables declaration//GEN-END:variables
 }
