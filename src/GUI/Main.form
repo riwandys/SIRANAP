@@ -134,12 +134,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="nama" min="-2" max="-2" attributes="0"/>
+                              <Component id="namaField" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="username" min="-2" max="-2" attributes="0"/>
+                              <Component id="usernameField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="273" max="32767" attributes="0"/>
@@ -154,12 +154,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nama" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="username" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -182,12 +182,12 @@
                 <Property name="text" type="java.lang.String" value="USERNAME     :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="nama">
+            <Component class="javax.swing.JLabel" name="namaField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="nama"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="username">
+            <Component class="javax.swing.JLabel" name="usernameField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="username"/>
               </Properties>

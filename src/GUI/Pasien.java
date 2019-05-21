@@ -155,10 +155,10 @@ private void kosongft(){
         cari_data = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        urut = new javax.swing.JComboBox<String>();
+        urut = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblpasien = new javax.swing.JTable();
-        jk = new javax.swing.JComboBox<String>();
+        jk = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         tahun = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -167,7 +167,7 @@ private void kosongft(){
         nama2 = new javax.swing.JTextField();
         telepon2 = new javax.swing.JTextField();
         save1 = new javax.swing.JButton();
-        jk2 = new javax.swing.JComboBox<String>();
+        jk2 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         batal2 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
@@ -178,11 +178,11 @@ private void kosongft(){
         jLabel22 = new javax.swing.JLabel();
         id2 = new javax.swing.JTextField();
         save2 = new javax.swing.JButton();
-        hari = new javax.swing.JComboBox<String>();
-        bulan = new javax.swing.JComboBox<String>();
-        hari1 = new javax.swing.JComboBox<String>();
+        hari = new javax.swing.JComboBox<>();
+        bulan = new javax.swing.JComboBox<>();
+        hari1 = new javax.swing.JComboBox<>();
         tahun1 = new javax.swing.JTextField();
-        bulan1 = new javax.swing.JComboBox<String>();
+        bulan1 = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         alamat1 = new javax.swing.JTextArea();
 
@@ -228,7 +228,7 @@ private void kosongft(){
 
         jLabel13.setText("URUT DATA");
 
-        urut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID PASIEN", "NAMA PASIEN", "TANGGAL LAHIR", "NO TELEPON" }));
+        urut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID PASIEN", "NAMA PASIEN", "TANGGAL LAHIR", "NO TELEPON" }));
         urut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 urutMouseClicked(evt);
@@ -258,7 +258,7 @@ private void kosongft(){
         });
         jScrollPane1.setViewportView(tblpasien);
 
-        jk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LAKI - LAKI", "PEREMPUAN", " " }));
+        jk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LAKI - LAKI", "PEREMPUAN", " " }));
 
         jLabel14.setText("TANGGAL LAHIR");
 
@@ -275,7 +275,7 @@ private void kosongft(){
             }
         });
 
-        jk2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LAKI-LAKI", "PEREMPUAN" }));
+        jk2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LAKI-LAKI", "PEREMPUAN" }));
 
         jLabel16.setText("TANGGAL LAHIR");
 
@@ -305,18 +305,18 @@ private void kosongft(){
             }
         });
 
-        hari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        hari.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
 
-        bulan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        hari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        hari1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
         hari1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hari1ActionPerformed(evt);
             }
         });
 
-        bulan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        bulan1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         alamat1.setColumns(20);
         alamat1.setRows(5);
@@ -389,12 +389,9 @@ private void kosongft(){
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(hari1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(id2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(save2)
-                                            .addComponent(telepon2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(save2)
+                                    .addComponent(telepon2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jk2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(batal2)

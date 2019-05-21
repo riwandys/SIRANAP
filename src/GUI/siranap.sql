@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2019 at 05:20 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: May 22, 2019 at 01:12 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rumah_sakit1`
+-- Database: `rumah_sakit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `NAMA` varchar(50) NOT NULL,
+  `USERNAME` varchar(50) NOT NULL,
+  `PASSWORD` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`NAMA`, `USERNAME`, `PASSWORD`) VALUES
+('Riwandy', 'riwandy', 'riwandy');
 
 -- --------------------------------------------------------
 
@@ -40,9 +59,11 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`NIP_DOKTER`, `NAMA_DOKTER`, `SPESIALIS`, `NO_TELPON`) VALUES
-('P123', 'diana', 'kandungan', '0721123456'),
-('P345', 'dini', 'kulit', '082345231310'),
-('P678', 'hasan', 'saraf', '0721111222');
+('1748273917', 'Adi Suparto', 'Jantung', '081748273917'),
+('2374998160', 'Cristiano Ronaldo', 'Mata', '086493391374'),
+('2835791209', 'Bambang Nuswantoro', 'THT', '081547382009'),
+('6983172844', 'Okta Febrianti', 'Dokter Gigi', '086983172844'),
+('8372665812', 'Dina Agustina', 'Anak', '088372665812');
 
 -- --------------------------------------------------------
 
@@ -60,10 +81,10 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`KODE_KAMAR`, `KELAS`) VALUES
-('E01', 'ekonomi'),
-('E2', 'ekonomi'),
-('VIP1', 'VIP'),
-('VIP2', 'VIP');
+('K01101', 'Kelas I'),
+('K02201', 'Kelas II'),
+('K03301', 'Kelas III'),
+('VIP401', 'VIP');
 
 -- --------------------------------------------------------
 
@@ -82,9 +103,10 @@ CREATE TABLE `kelas_kamar` (
 --
 
 INSERT INTO `kelas_kamar` (`KELAS`, `KAPASITAS`, `TARIF_PERHARI`) VALUES
-('ekonomi', 2, 250000),
-('vip', 1, 500000),
-('vvip', 1, 750000);
+('Kelas I', 2, 475000),
+('Kelas II', 2, 325000),
+('Kelas III', 3, 145000),
+('VIP', 1, 925000);
 
 -- --------------------------------------------------------
 
@@ -106,9 +128,14 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`ID_PASIEN`, `NAMA_PASIEN`, `JENIS_KELAMIN`, `TGL_LAHIR`, `NO_TELPON`, `ALAMAT`) VALUES
-('PA2', 'jumadi', 'Laki-laki', '1970-09-10', '08213214444', 'kedaton,bandar lampung'),
-('PA3', 'dewi', 'Perempuan', '1990-10-23', '08213354343', 'tanjung karang,bandar lampung'),
-('PA4', 'joko', 'Laki-laki', '1978-01-01', '08981223888', 'kedaton,bandar lampung');
+('12477836', 'Dwi Rahmadani', 'Perempuan', '1985-07-22', '081583479888', 'Jl. Supersemar No. 144 Bandarlampung'),
+('12748383', 'Silvia Gunadarma', 'Perempuan', '2010-09-01', '088218450000', 'Jl. Sukarame No. 38 Bandarlampung'),
+('18302828', 'Joni Swarnabhumi', 'Laki-laki', '1975-08-23', '081277349588', 'Jl. Swarnabhumi No. 154 Lampung Selatan'),
+('23947124', 'Dimas Sudarsono', 'Laki-laki', '1982-03-30', '082455217584', 'Jl. Basis Data No. 158124 Wakanda'),
+('55378219', 'Juki Syarifuddin', 'Laki-laki', '2014-10-17', '089288884751', 'Jl. Ryacudu No. 90 Bandarlampung'),
+('78339284', 'Putri Simangunsong', 'Perempuan', '1999-04-19', '081748298832', 'Jl. Kenanga No. 76 Bandarlampung'),
+('98325234', 'Abraham Silberschatz', 'Laki-laki', '1999-06-10', '083185743948', 'Jl. MySQL No. 12 Skandinavia'),
+('98746618', 'Gustian Pramono', 'Laki-laki', '1995-12-04', '081234708332', 'Jl. Pancasila No. 12 Bandarlampung');
 
 -- --------------------------------------------------------
 
@@ -129,11 +156,8 @@ CREATE TABLE `perawat` (
 --
 
 INSERT INTO `perawat` (`NIP_PERAWAT`, `NAMA_PERAWAT`, `JAM_MULAI_KERJA`, `JAM_SELESAI_KERJA`, `KELAS`) VALUES
-('D111', 'shanti', '07:00:00', '17:00:00', 'EKONOMI'),
-('D123', 'susanto', '18:00:00', '06:00:00', 'vip'),
-('D444', 'susana', '12:00:00', '23:00:00', 'ekonomi'),
-('D567', 'mail', '07:00:00', '17:00:00', 'VVIP'),
-('D998', 'upin', '18:00:00', '06:00:00', 'VIP');
+('478392812', 'Shinta Widyawati', '08:00:00', '18:00:00', 'Kelas II'),
+('8374462809', 'Yandi Eka Purnomo', '08:00:00', '18:00:00', 'Kelas I');
 
 -- --------------------------------------------------------
 
@@ -142,7 +166,7 @@ INSERT INTO `perawat` (`NIP_PERAWAT`, `NAMA_PERAWAT`, `JAM_MULAI_KERJA`, `JAM_SE
 --
 
 CREATE TABLE `perawatan` (
-  `NO_ADM` int(10) UNSIGNED ZEROFILL NOT NULL,
+  `NO_ADM` int(5) UNSIGNED ZEROFILL NOT NULL,
   `TGL_MASUK` date NOT NULL,
   `TGL_KELUAR` date NOT NULL,
   `BIAYA` int(11) NOT NULL,
@@ -152,18 +176,14 @@ CREATE TABLE `perawatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `perawatan`
---
-
-INSERT INTO `perawatan` (`NO_ADM`, `TGL_MASUK`, `TGL_KELUAR`, `BIAYA`, `ID_PASIEN`, `NIP_DOKTER`, `KODE_KAMAR`) VALUES
-(0000000001, '2019-04-09', '2019-04-15', 3500000, 'PA4', 'P256', 'VIP1'),
-(0000000003, '2019-03-10', '2019-03-20', 2500000, 'PA3', 'P123', 'E01'),
-(0000000004, '2019-04-15', '2019-04-20', 500000, 'PA3', 'P123', 'E2'),
-(0000000006, '2019-09-10', '2019-09-20', 2500000, 'PA4', 'P345', 'E2');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`USERNAME`);
 
 --
 -- Indexes for table `dokter`
@@ -203,8 +223,8 @@ ALTER TABLE `perawat`
 ALTER TABLE `perawatan`
   ADD PRIMARY KEY (`NO_ADM`),
   ADD KEY `ID_PASIEN` (`ID_PASIEN`),
-  ADD KEY `kode_kamar` (`KODE_KAMAR`),
-  ADD KEY `NIP_DOKTER` (`NIP_DOKTER`);
+  ADD KEY `nip_dokter` (`NIP_DOKTER`),
+  ADD KEY `kode_kamar` (`KODE_KAMAR`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -214,7 +234,7 @@ ALTER TABLE `perawatan`
 -- AUTO_INCREMENT for table `perawatan`
 --
 ALTER TABLE `perawatan`
-  MODIFY `NO_ADM` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `NO_ADM` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -230,15 +250,15 @@ ALTER TABLE `kamar`
 -- Constraints for table `perawat`
 --
 ALTER TABLE `perawat`
-  ADD CONSTRAINT `perawat_ibfk_1` FOREIGN KEY (`KELAS`) REFERENCES `kelas_kamar` (`KELAS`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `perawat_ibfk_1` FOREIGN KEY (`KELAS`) REFERENCES `kelas_kamar` (`KELAS`);
 
 --
 -- Constraints for table `perawatan`
 --
 ALTER TABLE `perawatan`
-  ADD CONSTRAINT `perawatan_ibfk_2` FOREIGN KEY (`KODE_KAMAR`) REFERENCES `kamar` (`KODE_KAMAR`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perawatan_ibfk_3` FOREIGN KEY (`ID_PASIEN`) REFERENCES `pasien` (`ID_PASIEN`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perawatan_ibfk_4` FOREIGN KEY (`NIP_DOKTER`) REFERENCES `dokter` (`NIP_DOKTER`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `perawatan_ibfk_1` FOREIGN KEY (`NIP_DOKTER`) REFERENCES `dokter` (`NIP_DOKTER`),
+  ADD CONSTRAINT `perawatan_ibfk_2` FOREIGN KEY (`KODE_KAMAR`) REFERENCES `kamar` (`KODE_KAMAR`),
+  ADD CONSTRAINT `perawatan_ibfk_3` FOREIGN KEY (`ID_PASIEN`) REFERENCES `pasien` (`ID_PASIEN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

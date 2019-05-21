@@ -5,17 +5,22 @@
  */
 package GUI;
 
+import Data.Admin;
+
 /**
  *
  * @author LAURENSIUS
  */
 public class Main extends javax.swing.JFrame {
-
+    private Admin administrator;
     /**
      * Creates new form mainmenu
      */
-    public Main() {
+    public Main(Admin admin) {
         initComponents();
+        administrator = admin;
+        namaField.setText(admin.getNama());
+        usernameField.setText(admin.getUsername());
     }
 
     /**
@@ -37,8 +42,8 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        nama = new javax.swing.JLabel();
-        username = new javax.swing.JLabel();
+        namaField = new javax.swing.JLabel();
+        usernameField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,9 +90,9 @@ public class Main extends javax.swing.JFrame {
 
         jLabel3.setText("USERNAME     :");
 
-        nama.setText("nama");
+        namaField.setText("nama");
 
-        username.setText("username");
+        usernameField.setText("username");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,11 +105,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nama))
+                        .addComponent(namaField))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(username)))
+                        .addComponent(usernameField)))
                 .addContainerGap(273, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,11 +120,11 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nama))
+                    .addComponent(namaField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(username))
+                    .addComponent(usernameField))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -205,16 +210,6 @@ public class Main extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-       
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dokter;
@@ -224,10 +219,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton kamar;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel nama;
+    private javax.swing.JLabel namaField;
     private javax.swing.JButton pasien;
     private javax.swing.JButton perawat;
     private javax.swing.JButton perawatan;
-    private javax.swing.JLabel username;
+    private javax.swing.JLabel usernameField;
     // End of variables declaration//GEN-END:variables
 }
