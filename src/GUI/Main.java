@@ -173,23 +173,33 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
-        // TODO add your handling code here:
+        Pasien x = new Pasien();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_pasienActionPerformed
 
     private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
-        // TODO add your handling code here:
+        Dokter x = new Dokter();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_dokterActionPerformed
 
     private void perawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatActionPerformed
-        // TODO add your handling code here:
+        Perawat x = new Perawat();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_perawatActionPerformed
 
     private void kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kamarActionPerformed
-        // TODO add your handling code here:
+        Kamar x = new Kamar();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_kamarActionPerformed
 
     private void perawatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatanActionPerformed
-        // TODO add your handling code here:
+        Perawatan x = new Perawatan();
+        x.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_perawatanActionPerformed
 
     /**

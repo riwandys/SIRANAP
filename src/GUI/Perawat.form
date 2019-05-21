@@ -72,9 +72,9 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="nip" alignment="0" max="32767" attributes="0"/>
                                       <Component id="nama" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="spesialis" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="telepon" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Component id="mulai" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="kelas" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="selesai" min="-2" pref="106" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="batal" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -99,9 +99,9 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="nip2" alignment="0" max="32767" attributes="0"/>
                                               <Component id="nama2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="spesialis2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="telepon2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextField2" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                                              <Component id="mulai2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="kelas2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="selesai2" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -109,7 +109,7 @@
                                               <Component id="cari_data" max="32767" attributes="0"/>
                                               <Component id="cari" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jComboBox1" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                                              <Component id="urut" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -143,17 +143,17 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spesialis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="mulai" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="selesai" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="telepon" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kelas" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="save" min="-2" max="-2" attributes="0"/>
@@ -177,17 +177,17 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="spesialis2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mulai2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="selesai2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="telepon2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="kelas2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -199,7 +199,7 @@
                                   <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="urut" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -256,19 +256,25 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nama">
         </Component>
-        <Component class="javax.swing.JTextField" name="spesialis">
+        <Component class="javax.swing.JTextField" name="mulai">
         </Component>
-        <Component class="javax.swing.JTextField" name="telepon">
+        <Component class="javax.swing.JTextField" name="kelas">
         </Component>
         <Component class="javax.swing.JButton" name="save">
           <Properties>
             <Property name="text" type="java.lang.String" value="SAVE"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="saveMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="batal">
           <Properties>
             <Property name="text" type="java.lang.String" value="BATAL"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="batalMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
@@ -281,13 +287,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CARI"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cariMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="text" type="java.lang.String" value="URUT DATA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="urut">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
@@ -299,6 +308,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="urutActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -310,7 +322,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tblperawat">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -321,10 +333,13 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblperawatMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="selesai">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
@@ -355,21 +370,27 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nama2">
         </Component>
-        <Component class="javax.swing.JTextField" name="spesialis2">
+        <Component class="javax.swing.JTextField" name="mulai2">
         </Component>
-        <Component class="javax.swing.JTextField" name="telepon2">
+        <Component class="javax.swing.JTextField" name="kelas2">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="selesai2">
         </Component>
         <Component class="javax.swing.JButton" name="save1">
           <Properties>
             <Property name="text" type="java.lang.String" value="UPDATE"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="save1MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="batal2">
           <Properties>
             <Property name="text" type="java.lang.String" value="BATAL"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="batal2MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
@@ -385,6 +406,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="DELETE"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
