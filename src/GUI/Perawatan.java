@@ -499,8 +499,9 @@ private void kosongft(){
             String insert = "insert into perawatan (tgl_masuk,tgl_keluar,biaya,id_pasien,"
                     + "nip_dokter,kode_kamar) values ('"
                     +masuk.getText()+"','"+keluar.getText()+"',datediff('"
-                    +keluar.getText()+"','"+masuk.getText()+"')*(select tarif_perhari from kelas_kamar where kelas in"
-                    + "(select kelas from kamar where kode_kamar='"+kode.getText()+"')),'"+id.getText()+"','"
+                    +keluar.getText()+"','"+masuk.getText()+"')*"
+                    + "(select tarif_perhari from kelas_kamar natural join kamar where "
+                    +"kode_kamar='"+kode.getText()+"'),'"+id.getText()+"','"
                     +nip.getText()+"','"+kode.getText()+"')";
             stmt.executeUpdate(insert);
             JOptionPane.showMessageDialog(null,"tambah data berhasil");
