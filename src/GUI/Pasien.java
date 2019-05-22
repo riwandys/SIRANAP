@@ -209,6 +209,11 @@ private void kosongft(){
                 saveMouseClicked(evt);
             }
         });
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
 
         batal.setText("BATAL");
         batal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -606,6 +611,10 @@ private void kosongft(){
         telepon2.setText(model.getValueAt(tblpasien.getSelectedRow(), 4).toString());
         alamat1.setText(model.getValueAt(tblpasien.getSelectedRow(), 5).toString());
     }//GEN-LAST:event_tblpasienMouseClicked
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveActionPerformed
 
     /**
      * @param args the command line arguments
