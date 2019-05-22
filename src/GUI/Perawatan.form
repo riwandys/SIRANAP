@@ -50,7 +50,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="1187" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
                           </Group>
@@ -68,18 +68,18 @@
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="masuk" alignment="0" pref="106" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="dokterComboBox" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="kamarComboBox" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="masuk" min="-2" pref="200" max="-2" attributes="0"/>
                                       <Component id="keluar" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="id" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="nip" max="32767" attributes="0"/>
-                                      <Component id="kode" max="32767" attributes="0"/>
+                                      <Component id="pasienComboBox" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="batal" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="save" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="batal1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -159,17 +159,17 @@
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="id" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pasienComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nip" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dokterComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="kode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Component id="kamarComboBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="save" min="-2" max="-2" attributes="0"/>
@@ -256,8 +256,6 @@
         <Component class="javax.swing.JTextField" name="masuk">
         </Component>
         <Component class="javax.swing.JTextField" name="keluar">
-        </Component>
-        <Component class="javax.swing.JTextField" name="id">
         </Component>
         <Component class="javax.swing.JButton" name="save">
           <Properties>
@@ -351,10 +349,6 @@
             <Property name="text" type="java.lang.String" value="KODE KAMAR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nip">
-        </Component>
-        <Component class="javax.swing.JTextField" name="kode">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="NIP DOKTER"/>
@@ -440,6 +434,42 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="pasienComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="-- Pilih pasien --"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="dokterComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="-- Pilih dokter --"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="kamarComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="-- Pilih kamar --"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
