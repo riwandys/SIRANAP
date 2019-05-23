@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author LAURENSIUS
  */
-public final class Dokter extends javax.swing.JFrame {
+public class Dokter extends javax.swing.JFrame {
 private void kosongft(){
         nip.setText(null);
         nip1.setText(null);
