@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 public class Utama extends javax.swing.JFrame {
     
     Connection con;
+    public static Admin administrator=null;
     
     public Utama() {
         initComponents();
@@ -131,7 +132,6 @@ public class Utama extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        Admin administrator = null;
         
         try{
             String username = usernameField.getText();
