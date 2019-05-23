@@ -15,10 +15,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author LAURENSIUS
- */
 public class Perawatan extends javax.swing.JFrame {
     Connection con;
     public Perawatan() {
@@ -113,7 +109,7 @@ public class Perawatan extends javax.swing.JFrame {
                     "");
                 Statement stmt = conn.createStatement();
         ){
-            String strSelect = "select * from perawatan where no_Adm like '%"+kolom+"%' or "+
+            String strSelect = "select * from perawatan where no_adm like '%"+kolom+"%' or "+
                     "tgl_masuk like '%"+kolom+"%' or tgl_keluar like '%"+kolom+"%'"+"or biaya like '%"+kolom+"%'"
                     +"or id_pasien like '%"+kolom+"%'"+"or nip_dokter like '%"+kolom+"%'"+"or kode_kamar like '%"+kolom+"%'";
             
@@ -134,7 +130,7 @@ public class Perawatan extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                pasienComboBox.addItem(rs.getString("ID_PASIEN") + " - " + rs.getString("NAMA_PASIEN"));
+                pasienComboBox.addItem(rs.getString("ID_PASIEN"));
             }
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -147,7 +143,7 @@ public class Perawatan extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                dokterComboBox.addItem(rs.getString("NIP_DOKTER") + " - " + rs.getString("NAMA_DOKTER") + " (Spesialis " + rs.getString("SPESIALIS") + ")");
+                dokterComboBox.addItem(rs.getString("NIP_DOKTER"));
             }
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -160,7 +156,7 @@ public class Perawatan extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                kamarComboBox.addItem(rs.getString("KELAS") + " - " + rs.getString("KODE_KAMAR"));
+                kamarComboBox.addItem(rs.getString("KODE_KAMAR"));
             }
         } catch (SQLException e){
             JOptionPane.showMessageDialog(null, e);
@@ -535,7 +531,7 @@ public class Perawatan extends javax.swing.JFrame {
                     + masuk.getText() + "','" + keluar.getText() + "',datediff('"
                     + keluar.getText() + "','" + masuk.getText() + "')*"
                     + "(select tarif_perhari from kelas_kamar natural join kamar where "
-                    +"kode_kamar='"+ kamarComboBox.getSelectedIndex() + "'),'" + pasienComboBox.getSelectedIndex() + "','"
+                    +"kode_kamar='"+ kamarComboBox.getSelectedItem() + "'),'" + pasienComboBox.getSelectedIndex() + "','"
                     + dokterComboBox.getSelectedIndex() + "','" + kamarComboBox.getSelectedIndex() + "')";
             stmt.executeUpdate(insert);
             JOptionPane.showMessageDialog(null,"tambah data berhasil");
