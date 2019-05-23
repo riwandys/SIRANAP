@@ -206,7 +206,7 @@ private void kosongft(){
         jLabel1.setPreferredSize(new java.awt.Dimension(110, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jLabel2.setText("SAVE DATA");
+        jLabel2.setText("TAMBAH DATA");
         jLabel2.setMaximumSize(new java.awt.Dimension(83, 15));
         jLabel2.setMinimumSize(new java.awt.Dimension(83, 15));
         jLabel2.setPreferredSize(new java.awt.Dimension(83, 15));
@@ -684,8 +684,8 @@ private void kosongft(){
                                     .addComponent(batal2)
                                     .addComponent(save2)))))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
