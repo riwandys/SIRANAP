@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/GUI/Dokter.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/GUI/Pasien.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/SIRANAP/mainmenu.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/Data/Admin.java</file>
             <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/GUI/Perawatan.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/Proses/JConnection.java</file>
-=======
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Pasien.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Main.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Perawatan.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Perawat.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Kamar.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Dokter.java</file>
-            <file>file:/C:/Users/LAURENSIUS/Documents/NetBeansProjects/SIRANAP/src/GUI/Utama.java</file>
->>>>>>> 409d9d31df8a66390e8bd182fbdeb15459bb78d9
+            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/GUI/Main.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/SIRANAP/src/GUI/Utama.java</file>
         </group>
     </open-files>
 </project-private>
