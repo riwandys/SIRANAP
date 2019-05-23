@@ -6,6 +6,8 @@
 package GUI;
 
 import Data.Admin;
+import java.awt.Color;
+import javax.swing.JButton;
 
 /**
  *
@@ -20,8 +22,8 @@ public class Main extends javax.swing.JFrame {
     public Main(Admin admin) {
         initComponents();
         administrator = admin;
-        namaField.setText(admin.getNama());
-        usernameField.setText(admin.getUsername());
+        namaField.setText("Selamat datang, " + admin.getNama());
+//        usernameField.setText(admin.getUsername());
     }
 
     public Main(){
@@ -37,174 +39,198 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        perawatan = new javax.swing.JButton();
-        dokter = new javax.swing.JButton();
-        perawat = new javax.swing.JButton();
-        kamar = new javax.swing.JButton();
-        pasien = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         namaField = new javax.swing.JLabel();
-        usernameField = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
+        perawatanButton = new javax.swing.JButton();
+        pasienButton = new javax.swing.JButton();
+        dokterButton = new javax.swing.JButton();
+        perawatButton = new javax.swing.JButton();
+        kamarButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(720, 420));
+        setMinimumSize(new java.awt.Dimension(720, 420));
+        setName(""); // NOI18N
+        setResizable(false);
+        setSize(new java.awt.Dimension(720, 420));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        perawatan.setBackground(new java.awt.Color(255, 255, 255));
-        perawatan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        perawatan.setText("PERAWATAN");
-        perawatan.setBorder(null);
-        perawatan.setBorderPainted(false);
-        perawatan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                perawatanActionPerformed(evt);
-            }
-        });
-
-        dokter.setBackground(new java.awt.Color(255, 255, 255));
-        dokter.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        dokter.setText("DOKTER");
-        dokter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dokterActionPerformed(evt);
-            }
-        });
-
-        perawat.setBackground(new java.awt.Color(255, 255, 255));
-        perawat.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        perawat.setText("PERAWAT");
-        perawat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                perawatActionPerformed(evt);
-            }
-        });
-
-        kamar.setBackground(new java.awt.Color(255, 255, 255));
-        kamar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        kamar.setText("KAMAR");
-        kamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kamarActionPerformed(evt);
-            }
-        });
-
-        pasien.setBackground(new java.awt.Color(255, 255, 255));
-        pasien.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        pasien.setText("PASIEN");
-        pasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pasienActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(perawatan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
-                    .addComponent(kamar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(perawat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(perawatan, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kamar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(perawat, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("NAMA            :");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("USERNAME     :");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFocusable(false);
+        jPanel1.setMaximumSize(new java.awt.Dimension(720, 420));
+        jPanel1.setMinimumSize(new java.awt.Dimension(720, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(720, 420));
 
         namaField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        namaField.setText("nama");
+        namaField.setText("Selamat datang, <admin name>");
 
-        usernameField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        usernameField.setText("username");
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/icons8-left-32.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        logoutButton.setBackground(new java.awt.Color(255, 255, 255));
+        logoutButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.setToolTipText("");
+        logoutButton.setBorder(null);
+        logoutButton.setBorderPainted(false);
+        logoutButton.setContentAreaFilled(false);
+        logoutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutButton.setFocusPainted(false);
+        logoutButton.setMaximumSize(new java.awt.Dimension(50, 20));
+        logoutButton.setMinimumSize(new java.awt.Dimension(50, 20));
+        logoutButton.setPreferredSize(new java.awt.Dimension(50, 20));
+        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                logoutButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutButtonMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/icons8-add-96.png"))); // NOI18N
+        perawatanButton.setBackground(new java.awt.Color(255, 255, 255));
+        perawatanButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        perawatanButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/iconPerawatan.png"))); // NOI18N
+        perawatanButton.setText("PERAWATAN");
+        perawatanButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        perawatanButton.setBorderPainted(false);
+        perawatanButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        perawatanButton.setFocusPainted(false);
+        perawatanButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        perawatanButton.setMaximumSize(new java.awt.Dimension(100, 120));
+        perawatanButton.setMinimumSize(new java.awt.Dimension(100, 120));
+        perawatanButton.setPreferredSize(new java.awt.Dimension(100, 120));
+        perawatanButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        perawatanButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                perawatanButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                perawatanButtonMouseExited(evt);
+            }
+        });
+        perawatanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perawatanButtonActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 479, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(namaField))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(usernameField)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(namaField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(usernameField))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pasienButton.setBackground(new java.awt.Color(255, 255, 255));
+        pasienButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pasienButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/iconPasien.png"))); // NOI18N
+        pasienButton.setText("PASIEN");
+        pasienButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        pasienButton.setBorderPainted(false);
+        pasienButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pasienButton.setFocusPainted(false);
+        pasienButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pasienButton.setMaximumSize(new java.awt.Dimension(100, 120));
+        pasienButton.setMinimumSize(new java.awt.Dimension(100, 120));
+        pasienButton.setPreferredSize(new java.awt.Dimension(100, 120));
+        pasienButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pasienButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pasienButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pasienButtonMouseExited(evt);
+            }
+        });
+        pasienButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasienButtonActionPerformed(evt);
+            }
+        });
+
+        dokterButton.setBackground(new java.awt.Color(255, 255, 255));
+        dokterButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        dokterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/iconDokter.png"))); // NOI18N
+        dokterButton.setText("DOKTER");
+        dokterButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        dokterButton.setBorderPainted(false);
+        dokterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dokterButton.setFocusPainted(false);
+        dokterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        dokterButton.setMaximumSize(new java.awt.Dimension(100, 120));
+        dokterButton.setMinimumSize(new java.awt.Dimension(100, 120));
+        dokterButton.setPreferredSize(new java.awt.Dimension(100, 120));
+        dokterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        dokterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dokterButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dokterButtonMouseExited(evt);
+            }
+        });
+        dokterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dokterButtonActionPerformed(evt);
+            }
+        });
+
+        perawatButton.setBackground(new java.awt.Color(255, 255, 255));
+        perawatButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        perawatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/iconPerawat.png"))); // NOI18N
+        perawatButton.setText("PERAWAT");
+        perawatButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        perawatButton.setBorderPainted(false);
+        perawatButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        perawatButton.setFocusTraversalPolicyProvider(true);
+        perawatButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        perawatButton.setMaximumSize(new java.awt.Dimension(100, 120));
+        perawatButton.setMinimumSize(new java.awt.Dimension(100, 120));
+        perawatButton.setPreferredSize(new java.awt.Dimension(100, 120));
+        perawatButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        perawatButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                perawatButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                perawatButtonMouseExited(evt);
+            }
+        });
+        perawatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perawatButtonActionPerformed(evt);
+            }
+        });
+
+        kamarButton.setBackground(new java.awt.Color(255, 255, 255));
+        kamarButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        kamarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/iconKamar.png"))); // NOI18N
+        kamarButton.setText("KAMAR");
+        kamarButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        kamarButton.setBorderPainted(false);
+        kamarButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        kamarButton.setFocusPainted(false);
+        kamarButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        kamarButton.setMaximumSize(new java.awt.Dimension(100, 120));
+        kamarButton.setMinimumSize(new java.awt.Dimension(100, 120));
+        kamarButton.setPreferredSize(new java.awt.Dimension(100, 120));
+        kamarButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        kamarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                kamarButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                kamarButtonMouseExited(evt);
+            }
+        });
+        kamarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kamarButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("MENU");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -212,18 +238,43 @@ public class Main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addComponent(perawatanButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(kamarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(perawatButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(dokterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pasienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namaField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(namaField)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pasienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kamarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(perawatButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dokterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(perawatanButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -231,61 +282,129 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
+    private void setColorMouseEntered(JButton button){
+        button.setBackground(new Color(220,220,220));
+    }
+    
+    private void resetColor(JButton button){
+        button.setBackground(new Color(255,255,255));
+    }
+    
+    private void pasienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienButtonActionPerformed
         Pasien x = new Pasien();
         x.setLocationRelativeTo(null);
         x.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_pasienActionPerformed
+    }//GEN-LAST:event_pasienButtonActionPerformed
 
-    private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
+    private void dokterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterButtonActionPerformed
         Dokter x = new Dokter();
         x.setLocationRelativeTo(null);
         x.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_dokterActionPerformed
+    }//GEN-LAST:event_dokterButtonActionPerformed
 
-    private void perawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatActionPerformed
+    private void perawatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatButtonActionPerformed
         Perawat x = new Perawat();
         x.setLocationRelativeTo(null);
         x.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_perawatActionPerformed
+    }//GEN-LAST:event_perawatButtonActionPerformed
 
-    private void kamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kamarActionPerformed
+    private void kamarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kamarButtonActionPerformed
         Kamar x = new Kamar();
         x.setLocationRelativeTo(null);
         x.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_kamarActionPerformed
+    }//GEN-LAST:event_kamarButtonActionPerformed
 
-    private void perawatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatanActionPerformed
+    private void perawatanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perawatanButtonActionPerformed
         Perawatan x = new Perawatan();
         x.setLocationRelativeTo(null);
         x.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_perawatanActionPerformed
+    }//GEN-LAST:event_perawatanButtonActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
- Utama objek = new Utama();
+    private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
+        Utama objek = new Utama();
         objek.setLocationRelativeTo(null);
         objek.setVisible(true);
         this.dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_logoutButtonMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void logoutButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(logoutButton);
+    }//GEN-LAST:event_logoutButtonMouseEntered
+
+    private void logoutButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(logoutButton);
+    }//GEN-LAST:event_logoutButtonMouseExited
+
+    private void perawatanButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perawatanButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(perawatanButton);
+    }//GEN-LAST:event_perawatanButtonMouseEntered
+
+    private void perawatanButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perawatanButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(perawatanButton);
+    }//GEN-LAST:event_perawatanButtonMouseExited
+
+    private void kamarButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kamarButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(kamarButton);
+    }//GEN-LAST:event_kamarButtonMouseEntered
+
+    private void kamarButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kamarButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(kamarButton);
+    }//GEN-LAST:event_kamarButtonMouseExited
+
+    private void perawatButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perawatButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(perawatButton);
+    }//GEN-LAST:event_perawatButtonMouseEntered
+
+    private void perawatButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_perawatButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(perawatButton);
+    }//GEN-LAST:event_perawatButtonMouseExited
+
+    private void dokterButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dokterButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(dokterButton);
+    }//GEN-LAST:event_dokterButtonMouseEntered
+
+    private void dokterButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dokterButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(dokterButton);
+    }//GEN-LAST:event_dokterButtonMouseExited
+
+    private void pasienButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasienButtonMouseEntered
+        // TODO add your handling code here:
+        setColorMouseEntered(pasienButton);
+    }//GEN-LAST:event_pasienButtonMouseEntered
+
+    private void pasienButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasienButtonMouseExited
+        // TODO add your handling code here:
+        resetColor(pasienButton);
+    }//GEN-LAST:event_pasienButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -325,19 +444,14 @@ public static void main(String args[]) {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton dokter;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton dokterButton;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton kamar;
+    private javax.swing.JButton kamarButton;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JLabel namaField;
-    private javax.swing.JButton pasien;
-    private javax.swing.JButton perawat;
-    private javax.swing.JButton perawatan;
-    private javax.swing.JLabel usernameField;
+    private javax.swing.JButton pasienButton;
+    private javax.swing.JButton perawatButton;
+    private javax.swing.JButton perawatanButton;
     // End of variables declaration//GEN-END:variables
 }
