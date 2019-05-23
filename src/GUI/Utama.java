@@ -22,16 +22,16 @@ import javax.swing.JOptionPane;
  * @author LAURENSIUS
  */
 public class Utama extends javax.swing.JFrame {
-
+    
     Connection con;
     public static Admin administrator=null;
-
+    
     public Utama() {
         initComponents();
         con = JConnection.ConnectDb();
     }
 
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -148,7 +148,7 @@ public class Utama extends javax.swing.JFrame {
                 .addComponent(appName1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(appName2)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,7 +203,7 @@ public class Utama extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-
+        
         try{
             String username = usernameField.getText();
             String password = new String (passwordField.getPassword());
@@ -212,13 +212,13 @@ public class Utama extends javax.swing.JFrame {
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-
+            
             if(rs.next()){
                 String fetchedNama = rs.getString("NAMA");
                 administrator = new Admin(username, password, fetchedNama);
                 con.close();
             }
-
+            
             if (administrator == null){
                 JOptionPane.showMessageDialog(null, "Username / Password Salah", "Unsuccessful Login", JOptionPane.ERROR_MESSAGE);
                 usernameField.setText("");
@@ -282,7 +282,7 @@ public class Utama extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

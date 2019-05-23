@@ -167,7 +167,7 @@ public void tampilan(){
         ));
         jScrollPane1.setViewportView(tblkamar);
 
-        jPanel2.setBackground(new java.awt.Color(67, 74, 84));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -180,7 +180,7 @@ public void tampilan(){
             .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(67, 74, 84));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

@@ -273,7 +273,7 @@ private void kosongft(){
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(67, 74, 84));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -286,7 +286,7 @@ private void kosongft(){
             .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(67, 74, 84));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
