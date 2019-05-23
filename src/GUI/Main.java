@@ -54,6 +54,7 @@ public class Main extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         perawatan.setBackground(new java.awt.Color(255, 255, 255));
+        perawatan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         perawatan.setText("PERAWATAN");
         perawatan.setBorder(null);
         perawatan.setBorderPainted(false);
@@ -64,6 +65,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         dokter.setBackground(new java.awt.Color(255, 255, 255));
+        dokter.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         dokter.setText("DOKTER");
         dokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +74,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         perawat.setBackground(new java.awt.Color(255, 255, 255));
+        perawat.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         perawat.setText("PERAWAT");
         perawat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +83,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         kamar.setBackground(new java.awt.Color(255, 255, 255));
+        kamar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kamar.setText("KAMAR");
         kamar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +92,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         pasien.setBackground(new java.awt.Color(255, 255, 255));
+        pasien.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         pasien.setText("PASIEN");
         pasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,11 +107,11 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(perawatan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(perawatan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                     .addComponent(kamar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dokter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(perawat, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE))
+                    .addComponent(perawat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -127,14 +132,18 @@ public class Main extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("NAMA            :");
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/icons8-add-96.png"))); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("USERNAME     :");
 
+        namaField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         namaField.setText("nama");
 
+        usernameField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         usernameField.setText("username");
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Foto/icons8-left-32.png"))); // NOI18N
@@ -177,17 +186,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(logout)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
+                        .addGap(153, 153, 153)
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(namaField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(usernameField)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(usernameField))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
