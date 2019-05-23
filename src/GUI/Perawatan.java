@@ -15,7 +15,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Perawatan extends javax.swing.JFrame {
+public final class Perawatan extends javax.swing.JFrame {
     Connection con;
     public Perawatan() {
         initComponents();
@@ -33,6 +33,10 @@ public class Perawatan extends javax.swing.JFrame {
         dokterComboBox.setSelectedIndex(0);
         keluar.setText(null);
         keluar2.setText(null);
+        masuk2.setText(null);
+        id2.setText(null);
+        nip2.setText(null);
+        kode2.setText(null);
         kamarComboBox.setSelectedIndex(0);
     }
 
@@ -46,9 +50,13 @@ public class Perawatan extends javax.swing.JFrame {
         x.addColumn("NIP DOKTER");
         x.addColumn("KODE KAMAR");
         
-       try{
-            Statement stmt = con.createStatement();
-            String strSelect = "select * from perawatan";
+       try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){  String strSelect = "select * from perawatan";
             
             ResultSet rset = stmt.executeQuery(strSelect);
             
@@ -125,10 +133,16 @@ public class Perawatan extends javax.swing.JFrame {
     }
     
     public void loadOpsiPasien(){
-        String query = "SELECT ID_PASIEN, NAMA_PASIEN FROM pasien ORDER BY ID_PASIEN";
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String query = "SELECT ID_PASIEN, NAMA_PASIEN FROM pasien ORDER BY ID_PASIEN";
+            ResultSet rs = stmt.executeQuery(query); 
             while(rs.next()){
                 pasienComboBox.addItem(rs.getString("ID_PASIEN"));
             }
@@ -138,10 +152,16 @@ public class Perawatan extends javax.swing.JFrame {
     }
     
     public void loadOpsiDokter(){
-        String query = "SELECT NIP_DOKTER, NAMA_DOKTER, SPESIALIS FROM dokter ORDER BY SPESIALIS";
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String query = "SELECT NIP_DOKTER, NAMA_DOKTER, SPESIALIS FROM dokter ORDER BY SPESIALIS";
+            ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
                 dokterComboBox.addItem(rs.getString("NIP_DOKTER"));
             }
@@ -151,10 +171,16 @@ public class Perawatan extends javax.swing.JFrame {
     }
     
     public void loadOpsiKamar(){
-        String query = "SELECT * FROM kamar ORDER BY KELAS";
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+        
+        try(
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
+            String query = "SELECT * FROM kamar ORDER BY KELAS";
+            ResultSet rs = stmt.executeQuery(query); 
             while(rs.next()){
                 kamarComboBox.addItem(rs.getString("KODE_KAMAR"));
             }
@@ -181,7 +207,7 @@ public class Perawatan extends javax.swing.JFrame {
         cari_data = new javax.swing.JTextField();
         cari = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        urut = new javax.swing.JComboBox<>();
+        urut = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablep = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -202,9 +228,9 @@ public class Perawatan extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         masuk2 = new javax.swing.JTextField();
         noadm = new javax.swing.JTextField();
-        pasienComboBox = new javax.swing.JComboBox<>();
-        dokterComboBox = new javax.swing.JComboBox<>();
-        kamarComboBox = new javax.swing.JComboBox<>();
+        pasienComboBox = new javax.swing.JComboBox<String>();
+        dokterComboBox = new javax.swing.JComboBox<String>();
+        kamarComboBox = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -251,7 +277,7 @@ public class Perawatan extends javax.swing.JFrame {
 
         jLabel13.setText("URUT DATA");
 
-        urut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOMOR ADM", "TANGGAL MASUK", "TANGGAL KELUAR", "BIAYA", "ID PASIEN", "NIP DOKTER", "KODE KAMAR" }));
+        urut.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NOMOR ADM", "TANGGAL MASUK", "TANGGAL KELUAR", "BIAYA", "ID PASIEN", "NIP DOKTER", "KODE KAMAR" }));
         urut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 urutActionPerformed(evt);
@@ -325,11 +351,11 @@ public class Perawatan extends javax.swing.JFrame {
 
         noadm.setEnabled(false);
 
-        pasienComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih pasien --" }));
+        pasienComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih pasien --" }));
 
-        dokterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih dokter --" }));
+        dokterComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih dokter --" }));
 
-        kamarComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Pilih kamar --" }));
+        kamarComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih kamar --" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -524,15 +550,19 @@ public class Perawatan extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
-       try{
-            Statement stmt = con.createStatement();
+       try(Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/rumah_sakit1",
+                    "root",
+                    "");
+                Statement stmt = conn.createStatement();
+        ){
             String insert = "insert into perawatan (tgl_masuk,tgl_keluar,biaya,id_pasien,"
                     + "nip_dokter,kode_kamar) values ('"
                     + masuk.getText() + "','" + keluar.getText() + "',datediff('"
                     + keluar.getText() + "','" + masuk.getText() + "')*"
                     + "(select tarif_perhari from kelas_kamar natural join kamar where "
-                    +"kode_kamar='"+ kamarComboBox.getSelectedItem() + "'),'" + pasienComboBox.getSelectedIndex() + "','"
-                    + dokterComboBox.getSelectedIndex() + "','" + kamarComboBox.getSelectedIndex() + "')";
+                    +"kode_kamar='"+ kamarComboBox.getSelectedItem() + "'),'" +pasienComboBox.getSelectedItem() + "','"
+                    + dokterComboBox.getSelectedItem() + "','" + kamarComboBox.getSelectedItem() + "')";
             stmt.executeUpdate(insert);
             JOptionPane.showMessageDialog(null,"tambah data berhasil");
             tampilan();
@@ -545,6 +575,7 @@ public class Perawatan extends javax.swing.JFrame {
 
     private void batalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_batalMouseClicked
         kosongft();
+        
     }//GEN-LAST:event_batalMouseClicked
 
     private void batal1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_batal1MouseClicked

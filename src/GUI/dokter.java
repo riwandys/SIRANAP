@@ -428,6 +428,7 @@ private void kosongft(){
             tampilan();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"gagal tambah data");
+            ex.printStackTrace();
         }        
     }//GEN-LAST:event_saveActionPerformed
 
