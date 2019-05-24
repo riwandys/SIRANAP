@@ -222,26 +222,32 @@ public class Dokter extends javax.swing.JFrame {
         telepon.setMinimumSize(new java.awt.Dimension(100, 20));
         telepon.setPreferredSize(new java.awt.Dimension(150, 20));
 
-        save.setBackground(new java.awt.Color(230, 230, 230));
+        save.setBackground(new java.awt.Color(64, 74, 84));
         save.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        save.setForeground(new java.awt.Color(255, 255, 255));
         save.setText("SAVE");
         save.setBorder(null);
-        save.setMaximumSize(new java.awt.Dimension(120, 20));
-        save.setMinimumSize(new java.awt.Dimension(120, 20));
-        save.setPreferredSize(new java.awt.Dimension(115, 20));
+        save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        save.setFocusPainted(false);
+        save.setMaximumSize(new java.awt.Dimension(115, 30));
+        save.setMinimumSize(new java.awt.Dimension(115, 30));
+        save.setPreferredSize(new java.awt.Dimension(115, 30));
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
             }
         });
 
-        batal.setBackground(new java.awt.Color(230, 230, 230));
+        batal.setBackground(new java.awt.Color(64, 74, 84));
         batal.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        batal.setForeground(new java.awt.Color(255, 255, 255));
         batal.setText("BATAL");
         batal.setBorder(null);
-        batal.setMaximumSize(new java.awt.Dimension(120, 20));
-        batal.setMinimumSize(new java.awt.Dimension(120, 20));
-        batal.setPreferredSize(new java.awt.Dimension(115, 20));
+        batal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        batal.setFocusPainted(false);
+        batal.setMaximumSize(new java.awt.Dimension(115, 30));
+        batal.setMinimumSize(new java.awt.Dimension(115, 30));
+        batal.setPreferredSize(new java.awt.Dimension(115, 30));
         batal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 batalMouseClicked(evt);
@@ -266,23 +272,32 @@ public class Dokter extends javax.swing.JFrame {
         telepon1.setMinimumSize(new java.awt.Dimension(100, 20));
         telepon1.setPreferredSize(new java.awt.Dimension(150, 20));
 
+        update.setBackground(new java.awt.Color(64, 74, 84));
         update.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        update.setForeground(new java.awt.Color(255, 255, 255));
         update.setText("UPDATE");
         update.setBorder(null);
+        update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         update.setFocusPainted(false);
-        update.setMaximumSize(new java.awt.Dimension(75, 23));
-        update.setMinimumSize(new java.awt.Dimension(75, 23));
-        update.setPreferredSize(new java.awt.Dimension(75, 23));
+        update.setMaximumSize(new java.awt.Dimension(75, 30));
+        update.setMinimumSize(new java.awt.Dimension(75, 30));
+        update.setPreferredSize(new java.awt.Dimension(75, 30));
         update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateActionPerformed(evt);
             }
         });
 
+        batal1.setBackground(new java.awt.Color(64, 74, 84));
         batal1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        batal1.setForeground(new java.awt.Color(255, 255, 255));
         batal1.setText("BATAL");
         batal1.setBorder(null);
-        batal1.setPreferredSize(new java.awt.Dimension(75, 23));
+        batal1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        batal1.setFocusPainted(false);
+        batal1.setMaximumSize(new java.awt.Dimension(75, 30));
+        batal1.setMinimumSize(new java.awt.Dimension(75, 30));
+        batal1.setPreferredSize(new java.awt.Dimension(75, 30));
         batal1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 batal1MouseClicked(evt);
@@ -322,8 +337,16 @@ public class Dokter extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel12.setText("CARI DATA");
 
+        cari_data.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        cari.setBackground(new java.awt.Color(64, 74, 84));
         cari.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        cari.setForeground(new java.awt.Color(255, 255, 255));
         cari.setText("CARI");
+        cari.setBorder(null);
+        cari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cari.setFocusPainted(false);
+        cari.setPreferredSize(new java.awt.Dimension(60, 30));
         cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cariActionPerformed(evt);
@@ -364,11 +387,16 @@ public class Dokter extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbldokter);
 
+        delete.setBackground(new java.awt.Color(64, 74, 84));
         delete.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setText("DELETE");
         delete.setBorder(null);
+        delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         delete.setFocusPainted(false);
-        delete.setPreferredSize(new java.awt.Dimension(75, 23));
+        delete.setMaximumSize(new java.awt.Dimension(75, 30));
+        delete.setMinimumSize(new java.awt.Dimension(75, 30));
+        delete.setPreferredSize(new java.awt.Dimension(75, 30));
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deleteMouseClicked(evt);
@@ -390,6 +418,7 @@ public class Dokter extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.setMaximumSize(new java.awt.Dimension(40, 40));
         jButton1.setMinimumSize(new java.awt.Dimension(40, 40));
@@ -475,7 +504,7 @@ public class Dokter extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel12)
                             .addComponent(cari_data)
-                            .addComponent(cari)
+                            .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
                             .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(145, 145, 145))))
@@ -526,15 +555,16 @@ public class Dokter extends javax.swing.JFrame {
                                     .addComponent(telepon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(8, 8, 8)
-                                .addComponent(cari_data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(cari)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cari_data, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel13)
-                                .addGap(18, 18, 18)
-                                .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(urut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(batal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

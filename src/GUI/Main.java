@@ -180,6 +180,7 @@ public class Main extends javax.swing.JFrame {
         perawatButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         perawatButton.setBorderPainted(false);
         perawatButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        perawatButton.setFocusPainted(false);
         perawatButton.setFocusTraversalPolicyProvider(true);
         perawatButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         perawatButton.setMaximumSize(new java.awt.Dimension(100, 120));
